@@ -31,6 +31,18 @@ values, uncertainties and links to the published sources they come from.
 
 ---
 
+## What it looks like
+
+| The 60-second logger | The dashboard |
+| --- | --- |
+| ![Daily logger](docs/screenshots/logger.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+
+| The action engine | The admin portal |
+| --- | --- |
+| ![Action engine](docs/screenshots/action-engine.png) | ![Admin portal](docs/screenshots/admin-portal.png) |
+
+---
+
 ## Try it in thirty seconds
 
 1. Open the [live demo](https://realgauravvyas.github.io/carboncampus/).
