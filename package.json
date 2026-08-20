@@ -1,0 +1,27 @@
+{
+  "name": "carboncampus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Campus-calibrated urban carbon footprint calculator — Avinya 2026, Prakriti EcoInnovate Challenge",
+  "workspaces": [
+    "shared",
+    "web",
+    "server"
+  ],
+  "scripts": {
+    "build:shared": "npm run build --workspace @carboncampus/shared",
+    "dev": "npm run build:shared && npm run dev --workspace @carboncampus/web",
+    "dev:api": "npm run build:shared && npm run dev --workspace @carboncampus/server",
+    "build": "npm run build:shared && npm run build --workspace @carboncampus/web",
+    "build:server": "npm run build:shared && npm run build --workspace @carboncampus/server",
+    "preview": "npm run preview --workspace @carboncampus/web",
+    "test": "npm run test --workspace @carboncampus/shared",
+    "typecheck": "npm run build:shared && npm run typecheck --workspace @carboncampus/web",
+    "stack:up": "docker compose up --build",
+    "stack:down": "docker compose down -v"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

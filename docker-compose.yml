@@ -1,0 +1,57 @@
+# The full CarbonCampus stack: API, PostgreSQL and Redis.
+#
+#   docker compose up --build      brings everything online
+#   docker compose run --rm api node server/dist/seed.js   seeds a demo campus
+#
+# The PWA then talks to it with:
+#   VITE_API_BASE=http://localhost:8080 npm run dev
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: carbon
+      POSTGRES_PASSWORD: carbon
+      POSTGRES_DB: carboncampus
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U carbon -d carboncampus']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  cache:
+    image: redis:7-alpine
+    command: ['redis-server', '--save', '', '--appendonly', 'no']
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    environment:
+      DATABASE_URL: postgres://carbon:carbon@db:5432/carboncampus
+      REDIS_URL: redis://cache:6379
+      PORT: '8080'
+      NODE_ENV: production
+      CORS_ORIGIN: http://localhost:5173,http://localhost:4173,https://realgauravvyas.github.io
+    ports:
+      - '8080:8080'
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:

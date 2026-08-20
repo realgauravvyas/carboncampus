@@ -1,0 +1,24 @@
+{
+  "name": "CarbonCampus — Urban Carbon Footprint Calculator",
+  "short_name": "CarbonCampus",
+  "description": "Log your daily habits, see your carbon footprint, and get the three swaps that cut it most. Campus-calibrated emission factors, offline-first.",
+  "start_url": "./",
+  "scope": "./",
+  "id": "carboncampus",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0E3E2E",
+  "theme_color": "#0E3E2E",
+  "categories": ["education", "lifestyle", "utilities"],
+  "lang": "en-IN",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Log today", "short_name": "Log", "url": "./#log" },
+    { "name": "Dashboard", "short_name": "Dashboard", "url": "./#dashboard" },
+    { "name": "This week's swaps", "short_name": "Act", "url": "./#act" }
+  ]
+}
