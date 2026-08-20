@@ -45,7 +45,7 @@ values, uncertainties and links to the published sources they come from.
 
 ## Try it in thirty seconds
 
-1. Open the [live demo](https://realgauravvyas.github.io/carboncampus/).
+1. Open this [live demo](https://realgauravvyas.github.io/carboncampus/).
 2. Enter a name and any email, pick a hostel — nothing is uploaded, it all stays in your browser.
 3. At the end of onboarding, choose a **demo persona** to load 30 days of realistic history, and
    the dashboard, recommendations and leagues fill immediately.
